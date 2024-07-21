@@ -15,6 +15,9 @@
                 <li><a href="/login">Login</a></li>
                 <li><a href="/logout">Logout</a></li>
                 <li><a href="/create">Create Account</a></li>
+                 <li><a href="/movie">Search Movie</a></li>
+                
+                
             </ul>
         </div>
     </header>

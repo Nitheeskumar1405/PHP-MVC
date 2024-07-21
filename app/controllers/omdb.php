@@ -8,10 +8,8 @@ class Omdb extends Controller {
       $json = file_get_contents($query_url);
       $phpObj = json_decode($json);
       $movie =  (array) $phpObj;
+      return $movie;
 
-      echo "<pre>";
-      print_r ($movie);
-      die;
-
+      
     }
 }
