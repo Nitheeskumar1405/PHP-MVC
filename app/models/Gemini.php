@@ -39,7 +39,8 @@ class Gemini
         if ($error) {
             return ['error' => $error];
         } else {
-            return json_decode($response, true);
+            return json_decode($response, true)
+    ;
         }
     }
 }
