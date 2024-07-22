@@ -20,6 +20,7 @@
     <h1>Movie Search Results</h1>
 
 
+
     <pre><?php print_r($movie); ?></pre>
 
     <div class="movie-info">

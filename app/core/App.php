@@ -8,6 +8,8 @@ class App {
     protected $params = [];
 
     public function __construct() {
+        session_start();
+
         if (isset($_SESSION['auth']) == 1) {
             //$this->method = 'index';
             $this->controller = 'home';
@@ -20,9 +22,8 @@ class App {
         /* if controller exists in the URL, then go to it
          * if not, then go to this->controller which is defaulted to home 
          */
-
-        if (file_exists('app/controllers/' . $url[1] . '.php')) {
-            $this->controller = $url[1];
+        if (isset($url[1]) && file_exists('app/controllers/' . ucfirst($url[1]) . '.php')) {
+            $this->controller = ucfirst($url[1]);
 
             $_SESSION['controller'] = $this->controller;
 
@@ -31,7 +32,7 @@ class App {
              * We do not want the method to be login in this case, but instead index
              * 
              */
-            if (in_array($this->controller, $this->special_url)) { 
+            if (in_array(strtolower($this->controller), $this->special_url)) { 
               $this->method = 'index';
             }
             unset($url[1]);
@@ -40,7 +41,7 @@ class App {
             die;
         }
 
-        require_once 'app/controllers/' . $this->controller . '.php';
+        require_once 'app/controllers/' . strtolower($this->controller) . '.php';
 
         $this->controller = new $this->controller;
 

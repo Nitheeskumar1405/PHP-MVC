@@ -2,7 +2,7 @@
     <nav>
         <ul>
             <li><a href="/home">Home</a></li>
-            <li><a href="/review">Get A Review</a></li>
+            <li><a href="/review">Get Review</a></li>
             <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']): ?>
                 <li><a href="/logout">Logout</a></li>
             <?php else: ?>

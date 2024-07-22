@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Route all requests to the index.php file
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Serve static files directly from the public directory
+RewriteCond %{REQUEST_URI} ^/public/
+RewriteRule ^public/(.*)$ public/$1 [L]
